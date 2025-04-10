@@ -19,6 +19,10 @@ const PeoplePage = () => {
     error: categoriesError,
   } = useSelector((state) => state.categories);
 
+  console.log("Categories:", categories);
+  console.log("Categories Loading:", categoriesLoading);
+  console.log("Categories Error:", categoriesError);
+
   // Fetch data on component mount
   useEffect(() => {
     dispatch(fetchAllPeople());
