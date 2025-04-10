@@ -1,0 +1,17 @@
+section.sub-header {
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.sub-header h1 {
+  width: 30%;
+  margin: 0 auto;
+  font-size: 2rem;
+  line-height: 50px;
+}
+
+.sub-header p {
+  width: 30%;
+  margin: 10px auto;
+}
