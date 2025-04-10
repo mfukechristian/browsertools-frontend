@@ -1,7 +1,104 @@
-.people-page {
+/* General Styles */
+.people-page-container {
   padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-.people-page h1 {
-  text-align: center;
+/* Categories Section */
+.categories-section {
+  margin-bottom: 20px;
+}
+
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-tag {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: default;
+}
+
+/* People Cards Section */
+.people-cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.people-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.people-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.people-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.people-card:hover {
+  transform: scale(1.05);
+}
+
+.people-card.hovered .people-card-overlay {
+  opacity: 0.7;
+}
+
+.people-card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.people-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.people-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.people-card:hover .people-card-content {
+  opacity: 1;
+}
+
+.people-card-name {
+  margin: 0;
+  font-size: 18px;
+}
+
+.people-card-description {
+  margin: 5px 0 0;
+  font-size: 14px;
 }
