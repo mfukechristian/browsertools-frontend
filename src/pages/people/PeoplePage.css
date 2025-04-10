@@ -1,6 +1,23 @@
 /* General Styles */
 .people-page-container {
   padding: 20px;
+  position: relative;
+}
+
+/* Cursor Following Tooltip */
+.cursor-tooltip {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none; /* Important: prevents tooltip from interfering with hover events */
+  z-index: 1000;
+  transform: translate(0, 0); /* For smoother animations */
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Categories Section */
@@ -49,6 +66,18 @@
   transition: opacity 0.3s ease;
 }
 
+.people-card-link {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
 .people-card-link:hover .overlay {
   opacity: 1;
+}
+
+.people-card-link:hover {
+  transform: translateY(-2px);
 }

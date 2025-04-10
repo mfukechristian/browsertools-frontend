@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllPeople } from "../../../redux/actions/peopleAction";
 import { fetchAllCategories } from "../../../redux/actions/peopleCategoryAction";
@@ -6,6 +6,8 @@ import "./PeoplePage.css";
 
 const PeoplePage = () => {
   const dispatch = useDispatch();
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Select people and categories from Redux store
   const {
@@ -25,8 +27,29 @@ const PeoplePage = () => {
     dispatch(fetchAllCategories());
   }, [dispatch]);
 
+  // Handle mouse movement to update tooltip position
+  const handleMouseMove = (e) => {
+    setTooltipPosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  };
+
   return (
     <div className="people-page-container">
+      {/* Tooltip that follows cursor */}
+      {showTooltip && (
+        <div
+          className="cursor-tooltip"
+          style={{
+            left: `${tooltipPosition.x + 15}px`,
+            top: `${tooltipPosition.y + 15}px`,
+          }}
+        >
+          Visit Site
+        </div>
+      )}
+
       {/* Display Categories as Tags */}
       <div className="categories-section">
         {categoriesLoading && <p>Loading categories...</p>}
@@ -54,6 +77,9 @@ const PeoplePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="people-card-link"
+                onMouseMove={handleMouseMove}
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
               >
                 <div className="image-container">
                   <img
