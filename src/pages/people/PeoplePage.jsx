@@ -19,10 +19,6 @@ const PeoplePage = () => {
     error: categoriesError,
   } = useSelector((state) => state.categories);
 
-  console.log("Categories:", categories);
-  console.log("Categories Loading:", categoriesLoading);
-  console.log("Categories Error:", categoriesError);
-
   // Fetch data on component mount
   useEffect(() => {
     dispatch(fetchAllPeople());
@@ -59,24 +55,17 @@ const PeoplePage = () => {
                 rel="noopener noreferrer"
                 className="people-card-link"
               >
-                <div
-                  className="people-card"
-                  onMouseOver={(e) => e.target.classList.add("hovered")}
-                  onMouseOut={(e) => e.target.classList.remove("hovered")}
-                >
+                <div className="image-container">
                   <img
                     src={person.image}
                     alt={person.name}
                     className="people-card-image"
                   />
-                  <div className="people-card-overlay"></div>
-                  <div className="people-card-content">
-                    <h3 className="people-card-name">{person.name}</h3>
-                    <p className="people-card-description">
-                      {person.description}
-                    </p>
-                  </div>
+                  <div className="overlay"></div>
                 </div>
+
+                <h3 className="people-card-name">{person.name}</h3>
+                <p className="people-card-description">{person.description}</p>
               </a>
             ))}
         </div>
