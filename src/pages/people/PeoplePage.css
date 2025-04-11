@@ -81,3 +81,19 @@
 .people-card-link:hover {
   transform: translateY(-2px);
 }
+
+/* Media Queries */
+
+/* Tablet View (up to 768px width) */
+@media (max-width: 900px) {
+  .people-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile View (up to 480px width) */
+@media (max-width: 480px) {
+  .people-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
